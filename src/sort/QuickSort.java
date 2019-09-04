@@ -12,12 +12,13 @@ public class QuickSort {
 	
 	@Test
 	public void testSort() {
-		List<Integer> list = Arrays.asList(new Integer[]{6,3,5,8,9});
+		//List<Integer> list = Arrays.asList(new Integer[]{6,3,5,8,9});
+		List<Integer> list = Arrays.asList(new Integer[]{8,4,7,6,10,2,3});
 		List<Integer> sorted_list = quickSort(new ArrayList<>(list));
 		
 		System.out.println("list:"+list);
 		System.out.println("sorted_list:"+sorted_list);
-		assertEquals(Arrays.asList(new Integer[]{3,5,6,8,9}), sorted_list);
+		//assertEquals(Arrays.asList(new Integer[]{3,5,6,8,9}), sorted_list);
 		
 		
 		
@@ -51,7 +52,7 @@ public class QuickSort {
 		System.out.println("lower sorted"+sorted);
 		sorted.add(pivot);
 		System.out.println("adding pivot"+sorted);
-		sorted.addAll(higher);
+		sorted.addAll(quickSort(higher));
 		System.out.println("higher sorted"+sorted);
 		
 		return sorted;
