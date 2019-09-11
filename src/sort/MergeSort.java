@@ -58,7 +58,7 @@ public class MergeSort {
 		//merge 2 lists in sorted order
 		int first_pointer = 0;
 		int second_pointer = 0;
-		List<Integer> mergedList = new ArrayList<>();
+		List<Integer> mergedList = new ArrayList<>(first.size()+second.size());
 		
 		//repeat till pointers are less than respective list sizes
 		while (first_pointer < first.size() && second_pointer <second.size()) {
