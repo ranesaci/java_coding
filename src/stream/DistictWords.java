@@ -22,6 +22,7 @@ public class DistictWords {
 	 */
 	public static void main(String[] args) throws URISyntaxException {
 		
+		
 		try {
 			Stream<String> lines = Files.lines(Paths.get(ClassLoader.getSystemResource("stream/distinct.txt").toURI()));
 			

@@ -82,6 +82,7 @@ class VegNonVegCustomCollector implements Collector<Dish, Map<Boolean, List<Dish
 	 */
 	@Override
 	public Supplier<Map<Boolean, List<Dish>>> supplier() {
+		System.out.println("in supplier");
 		return ()-> new HashMap<Boolean, List<Dish>>(){
 			{
 				put(true, new ArrayList<Dish>());
@@ -95,6 +96,7 @@ class VegNonVegCustomCollector implements Collector<Dish, Map<Boolean, List<Dish
 	 */
 	@Override
 	public BiConsumer<Map<Boolean, List<Dish>>, Dish> accumulator() {
+		System.out.println("in accumulator");
 		return (Map<Boolean, List<Dish>> map,  Dish dish)-> map.get(dish.isVeg).add(dish);
 	}
 
@@ -103,6 +105,7 @@ class VegNonVegCustomCollector implements Collector<Dish, Map<Boolean, List<Dish
 	 */
 	@Override
 	public BinaryOperator<Map<Boolean, List<Dish>>> combiner() {
+		System.out.println("in combiner##");
 		return (Map<Boolean, List<Dish>> map1, Map<Boolean, List<Dish>> map2) -> {
 			map1.get(true).addAll(map2.get(true));
 			map1.get(false).addAll(map2.get(false));
@@ -116,6 +119,7 @@ class VegNonVegCustomCollector implements Collector<Dish, Map<Boolean, List<Dish
 	@Override
 	public Function<Map<Boolean, List<Dish>>, Map<Boolean, List<Dish>>> finisher() {
 		// TODO Auto-generated method stub
+		System.out.println("in finisher $$$$$$$$$$$$");
 		return Function.identity();
 	}
 
@@ -125,6 +129,7 @@ class VegNonVegCustomCollector implements Collector<Dish, Map<Boolean, List<Dish
 	@Override
 	public Set<Characteristics> characteristics() {
 		// TODO Auto-generated method stub
+		System.out.println("in characteristics");
 		return Collections.unmodifiableSet(EnumSet.of(Characteristics.IDENTITY_FINISH));
 	}
 	
